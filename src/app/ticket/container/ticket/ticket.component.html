@@ -1,0 +1,39 @@
+<form [formGroup]="form">
+
+  <div formGroupName="ticket">
+    <po-input formControlName="title" name="input" p-label="Title"> </po-input>
+    <po-textarea formControlName="description" name="textarea" p-label="Description"> </po-textarea>
+  </div>
+  <!--
+  <div formGroupName="assign">
+    <po-input formControlName="user_id" name="input" p-label="Assign"> </po-input>
+  </div> -->
+
+  <div formGroupName="comment">
+
+    <po-textarea formControlName="text" name="textarea" p-label="Comment"></po-textarea>
+    <div class="ticket_comment__btn_add">
+      <po-button p-icon="po-icon-plus" p-label="Add" p-type="primary" (p-click)="add()">
+      </po-button>
+    </div>
+
+
+    <div formArrayName="comments">
+      <div *ngFor="let item of form.get('comment.comments')['controls']; let i = index;">
+        <po-info p-label="Comentario" [p-value]="item.value.comment_text"> </po-info>
+        <po-button p-icon="po-icon-remove" p-label="Remove" p-type="primary" (p-click)="remove(item, i)"></po-button>
+
+        <div [formGroupName]="i">
+          <!-- <po-textarea formControlName="comment"  name="textarea" p-label="Comment"> </po-textarea> -->
+         </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <po-button p-label="PO Button" [p-disabled]="form.invalid"> </po-button>
+
+  <pre>{{form.value | json}}</pre>
+</form>
