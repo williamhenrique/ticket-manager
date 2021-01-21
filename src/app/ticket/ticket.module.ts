@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ListComponent } from './components/list/list.component';
 import { GridComponent } from './components/grid/grid.component';
 
+
 import { HomeComponent } from './container/home/home.component';
 
 const routes: Routes = [

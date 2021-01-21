@@ -5,4 +5,5 @@ export interface Ticket{
   assigneeId: number;
   assigneeName?: string;
   completed: boolean;
+  deadline: string;
 }

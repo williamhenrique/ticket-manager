@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: '', redirectTo: 'ticket', pathMatch: 'full'},
-  {path: 'ticket', loadChildren: ()=> import('./ticket/ticket.module').then(m => m.TicketModule) }
+  {path: 'ticket', loadChildren: ()=> import('./ticket/ticket.module').then(m => m.TicketModule) },
+  {path: 'auth', loadChildren: ()=> import('./auth/auth.module').then(m => m.AuthModule) }
+
 ];
 
 @NgModule({
