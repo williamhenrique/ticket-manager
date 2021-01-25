@@ -9,6 +9,7 @@ import { GridComponent } from './components/grid/grid.component';
 import { HomeComponent } from './container/home/home.component';
 import { TicketComponent } from './container/ticket/ticket.component';
 import { PoModule } from '@po-ui/ng-components';
+import { TotalComponent } from './components/total/total.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent, ListComponent, GridComponent, TicketComponent],
+  declarations: [HomeComponent, ListComponent, GridComponent, TicketComponent, TotalComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
