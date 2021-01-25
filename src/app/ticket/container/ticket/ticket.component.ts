@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TicketValidators } from './ticket.validators';
 
 @Component({
   selector: 'app-ticket',
@@ -10,7 +11,8 @@ export class TicketComponent implements OnInit {
   form = new FormGroup({
     ticket: new FormGroup({
       title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required])
+      description: new FormControl('', [Validators.required]),
+      issue: new FormControl('', [TicketValidators.checkIssueFormat])
     }),
     assign: new FormGroup({
       user_id: new FormControl('123')

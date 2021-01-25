@@ -3,6 +3,10 @@
   <div formGroupName="ticket">
     <po-input formControlName="title" name="input" p-label="Title"> </po-input>
     <po-textarea formControlName="description" name="textarea" p-label="Description"> </po-textarea>
+
+    <po-input formControlName="issue" name="input" p-label="Jira Issue"> </po-input>
+
+
   </div>
   <!--
   <div formGroupName="assign">
@@ -25,15 +29,15 @@
 
         <div [formGroupName]="i">
           <!-- <po-textarea formControlName="comment"  name="textarea" p-label="Comment"> </po-textarea> -->
-         </div>
+        </div>
       </div>
     </div>
 
   </div>
 
 
-
-  <po-button p-label="PO Button" [p-disabled]="form.invalid"> </po-button>
-
+  <div class="ticket_comment__btn_add po-mt-2">
+    <po-button p-label="PO Button" [p-disabled]="form.invalid"> </po-button>
+  </div>
   <pre>{{form.value | json}}</pre>
 </form>
