@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+  <app-auth>
+    <div header>
+      Message Register
+    </div>
+    <div body>
+      <div class="po-row">
+        <div class="po-lg-12">
+          <po-input formControlName="name" name="input" p-label="Name" class="po-lg-12 "> </po-input>
+        </div>
+        <div class="po-lg-12">
+          <po-input formControlName="email" name="input" p-label="email" class="po-lg-12 "> </po-input>
+        </div>
+        <div class="po-lg-12">
+          <po-password formControlName="password" name="input" p-label="Password" class="po-lg-12 "> </po-password>
+        </div>
+      </div>
+      <div footer>
+        <div class="po-lg-12">
+          <po-button p-type="primary" p-label="Registrar" class="po-lg-12" (p-click)="register()"> </po-button>
+        </div>
+      </div>
+    </div>
+  </app-auth>
+  </form>

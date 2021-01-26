@@ -1,5 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RequestInterceptor } from './interceptor/request.interceptor';
 
 export function throwIfAlreadyLoaded(parentModule: any, moduleName: string) {
   if (parentModule) {
@@ -11,7 +13,10 @@ export function throwIfAlreadyLoaded(parentModule: any, moduleName: string) {
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }
   ]
 })
 

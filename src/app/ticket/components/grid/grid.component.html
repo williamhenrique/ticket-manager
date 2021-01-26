@@ -5,6 +5,7 @@
 <ng-template p-list-view-content-template let-item>
   <div class="po-row">
     <po-info class="po-md-12" p-label="Description" [p-value]="item.description"></po-info>
+    <po-info class="po-md-12" p-label="Date Finish" [p-value]="item.deadline | customdate "></po-info>
   </div>
 </ng-template>
 </po-list-view>

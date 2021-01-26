@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ListComponent } from './components/list/list.component';
 import { GridComponent } from './components/grid/grid.component';
 
+
 import { HomeComponent } from './container/home/home.component';
 import { TicketComponent } from './container/ticket/ticket.component';
 import { PoModule } from '@po-ui/ng-components';
@@ -13,7 +14,6 @@ import { TotalComponent } from './components/total/total.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'new', component: TicketComponent}
 ];
 
 @NgModule({

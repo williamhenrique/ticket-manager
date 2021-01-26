@@ -20,4 +20,8 @@ constructor(private http: HttpClient) { }
     );
   }
 
+  post<T>(endpoint, body: {}){
+    return this.http.post<T>(`${this.api}/${endpoint}`, body)
+  }
+
 }

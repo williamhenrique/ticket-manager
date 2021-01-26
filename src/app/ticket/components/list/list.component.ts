@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { PoTableColumn } from '@po-ui/ng-components';
 import { Ticket } from '../../ticket.model';
 
 @Component({
@@ -7,6 +8,20 @@ import { Ticket } from '../../ticket.model';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+
+  columns: PoTableColumn[] = [
+    {property: 'title', label: 'Title' },
+    {property: 'description', label: 'Description' },
+    {property: 'assigneeName', label: 'Assignee' },
+    {property: 'deadline', label: 'Finish Date', type: 'date', format: 'dd-MM-yyyy'},
+    // {property: 'deadline', label: 'Data limite', type: 'date', format: 'dd-MM-yyyy'},
+    {property: 'completed', label: 'Status', type: 'label', labels: [
+      { value: 'true', color: 'color-11', label: 'Ativo' },
+      { value: 'false', color: 'color-08', label: 'Desativado' }
+    ]}
+
+  ];
+
   @Input() tickets: Ticket[];
   constructor() { }
 

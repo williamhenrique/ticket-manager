@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+<app-auth>
+  <div header>
+    Message Login
+  </div>
+  <div body>
+    <div class="po-row">
+      <div class="po-offset-lg-4 po-offset-xl-4 po-lg-4">
+        <po-input formControlName="email" name="input" p-label="Email" class="po-lg-12 "> </po-input>
+      </div>
+      <div class="po-offset-lg-4 po-offset-xl-4 po-lg-4">
+        <po-password formControlName="password" name="input" p-label="Password" class="po-lg-12 "> </po-password>
+      </div>
+    </div>
+    <div footer>
+      <div class="po-offset-lg-4 po-offset-xl-4 po-lg-4">
+        <po-button p-type="primary" p-label="Entrar" class="po-lg-12" (p-click)="login()"> </po-button>
+      </div>
+    </div>
+  </div>
+</app-auth>
+</form>
