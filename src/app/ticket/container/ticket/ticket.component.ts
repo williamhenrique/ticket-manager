@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { TicketValidators } from './ticket.validators';
-import { UsersService } from '../../../core/services/users.service';
+
 import { map, tap } from 'rxjs/operators';
+import { UsersService } from '../../../core/services/users.service';
+import { TicketValidators } from '../../ticket.validators';
 
 @Component({
   selector: 'app-ticket',
@@ -29,7 +30,6 @@ export class TicketComponent implements OnInit {
   constructor(private fb: FormBuilder, private user: UsersService) { }
 
   ngOnInit() {
-
   }
 
   add() {
@@ -89,7 +89,6 @@ export class TicketComponent implements OnInit {
   }
 
   get invalidCloseIssue() {
-    // console.log('invalid', this.form.hasError('invalidIssueClose'));
     return (
       this.form.hasError('invalidIssueClose')
     );
@@ -103,7 +102,6 @@ export class TicketComponent implements OnInit {
   }
 
   validateUserExist(control: AbstractControl) {
-    console.log(control.value)
     return this.user.getUserByEmail(control.value).pipe(
       map((response: []) => {
         console.log( response.length > 0 ? null : { invalidEmailExist: true })
