@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -14,6 +15,10 @@ constructor(private http: HttpService) { }
 
   getUserById(id: number){
     return this.http.get(`users/${id}`);
+  }
+
+  getUserByEmail(email: string){
+    return this.http.get('users', {email})
   }
 
 }

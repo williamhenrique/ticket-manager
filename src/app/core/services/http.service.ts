@@ -13,8 +13,9 @@ private readonly api = environment.api;
 
 constructor(private http: HttpClient) { }
 
-  get<T>(endpoint){
-    return this.http.get<T>(`${this.api}/${endpoint}`).pipe(
+  get<T>(endpoint, params?: {}){
+    console.log(params)
+    return this.http.get<T>(`${this.api}/${endpoint}`, {params}).pipe(
       distinctUntilChanged(),
     );
   }

@@ -3,23 +3,42 @@
   <div formGroupName="ticket">
     <po-input formControlName="title" name="input" p-label="Title"> </po-input>
 
-    <font class="po-font-text po-text-color-07"
-    *ngIf="required('title', 'ticket')" >Titulo Obrigatoria</font>
+    <div class="po-font-text po-text-color-07" *ngIf="required('title', 'ticket')">
+      Title Required
+    </div>
 
     <po-textarea formControlName="description" name="textarea" p-label="Description"> </po-textarea>
+    <div class="po-font-text po-text-color-07" *ngIf="required('description', 'ticket')">
+      Description Required
+    </div>
 
-    <po-input formControlName="issue" name="input" p-label="Jira Issue"> </po-input>
+    <po-input formControlName="issue" name="input" p-label="Issue Code"> </po-input>
 
-    <font class="po-font-text po-text-color-07"
-    *ngIf="required('description', 'ticket')" >Descrição Obrigatoria</font>
+    <div class="po-font-text po-text-color-07" *ngIf="invalidIssue">
+      Invalid issue code: 1 letter, 3 numbers
+    </div>
+
+    <po-checkbox formControlName="issueClose" name="checkbox" p-label="Close issue?"> </po-checkbox>
+    <div class="po-font-text po-text-color-07" *ngIf="invalidCloseIssue">
+      issue number empty
+    </div>
 
 
   </div>
+  <div formGroupName="assign">
+    <po-input formControlName="user_email" name="input" p-label="Assign User"> </po-input>
+
+    <div class="po-font-text po-text-color-07" *ngIf="invalidEmailExist">
+      email not exist
+    </div>
+  </div>
+
 
   <div formGroupName="comment">
     <po-textarea formControlName="text" name="textarea" p-label="Comment"></po-textarea>
     <div class="ticket_comment__btn_add">
-      <po-button p-icon="po-icon-plus" p-label="Add" p-type="primary" (p-click)="add()"  [p-disabled]="form.get('comment.text').invalid">
+      <po-button p-icon="po-icon-plus" p-label="Add" p-type="primary" (p-click)="add()"
+        [p-disabled]="form.get('comment.text').invalid">
       </po-button>
     </div>
 
@@ -29,7 +48,7 @@
     <div formArrayName="comments">
       <div *ngFor="let item of form.get('comment.comments')['controls']; let i = index;">
         <po-info p-label="Comentario" [p-value]="item.value.comment_text"> </po-info>
-        <po-button p-icon="po-icon-remove" p-label="Remove" p-type="primary" (p-click)="remove(item, i)" ></po-button>
+        <po-button p-icon="po-icon-remove" p-label="Remove" p-type="primary" (p-click)="remove(item, i)"></po-button>
 
 
         <div [formGroupName]="i">
@@ -41,7 +60,7 @@
 
   </div>
 
-  <po-button p-label="PO Button" [p-disabled]="form.invalid"> </po-button>
+  <po-button p-label="Save" [p-disabled]="form.invalid"> </po-button>
   <po-button p-label="Reset" (click)="resetForm()" p-type="danger"> </po-button>
 
 
