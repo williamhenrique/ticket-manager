@@ -28,7 +28,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.tickets);
+    console.log('', changes);
 
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.

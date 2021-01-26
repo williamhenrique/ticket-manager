@@ -15,7 +15,10 @@ export class AppComponent {
   }
 
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Home', link: '/'},
+    { label: 'Home', link: 'ticket/view/open'},
+    { label: 'Historic', link: 'ticket/view/close'},
+    { label: 'Create', link: 'ticket/create'},
+
   ];
 
   navigateTo(link: string): void{

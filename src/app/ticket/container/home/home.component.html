@@ -1,5 +1,5 @@
 <div class="container-button po-mb-2">
-<po-button [p-icon]="[canDisplayGrid ? 'po-icon-list' : 'po-icon-grid']" (p-click)="showDisplayGrid()"> </po-button>
+  <po-button [p-icon]="[canDisplayGrid ? 'po-icon-list' : 'po-icon-grid']" (p-click)="showDisplayGrid()"> </po-button>
 </div>
 
 <ng-container *ngIf="(tickets$ | async) as tickets" >

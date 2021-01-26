@@ -12,10 +12,9 @@ export class TicketService {
 
   constructor(private http: HttpService, private user: UsersService) { }
 
-  getTickets(): Observable<Ticket[]>{
-    return this.http.get<Ticket[]>('tickets').pipe(
+  getTickets(completed = true): Observable<Ticket[]>{
+    return this.http.get<Ticket[]>('tickets', {completed}).pipe(
       switchMap(ticket => from(ticket)),
-      tap(console.info),
       mergeMap(ticket => {
         return this.user.getUserById(ticket.assigneeId).pipe(
           map(user => {

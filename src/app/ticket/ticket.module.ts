@@ -10,10 +10,22 @@ import { TotalComponent } from './components/total/total.component';
 
 import { HomeComponent } from './container/home/home.component';
 import { TicketComponent } from './container/ticket/ticket.component';
+import { TicketResolve } from './ticket.resolve';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'create', component: TicketComponent}
+  {
+    path: 'ticket',
+    children: [
+      {path: 'create', component: TicketComponent},
+      {
+        path: 'view/:name',
+        component: HomeComponent,
+        resolve: {
+          ticket: TicketResolve
+        }
+      },
+    ]
+  },
 ];
 
 @NgModule({
@@ -22,6 +34,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule,
-  ]
+  ],
+  providers: [TicketResolve]
 })
 export class TicketModule { }
